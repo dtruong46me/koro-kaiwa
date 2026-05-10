@@ -1,0 +1,376 @@
+/* ============================================================
+   Koro Design System — colors_and_type.css
+   Tokens for color, type, spacing, radii, shadows, motion.
+   Light (washi) + dark (sumi) themes via [data-theme].
+   ============================================================ */
+
+@import url("./fonts/fonts.css");
+
+/* ---------- Base palette (raw colors, not for direct use) ---------- */
+:root {
+  /* Bamboo — primary */
+  --bamboo-50:  #ECF6F0;
+  --bamboo-100: #D5EBDD;
+  --bamboo-200: #A9D7B8;
+  --bamboo-300: #7CC293;
+  --bamboo-400: #4FAD6E;
+  --bamboo-500: #1F8A5B; /* primary */
+  --bamboo-600: #1A7350;
+  --bamboo-700: #155C43;
+  --bamboo-800: #114836;
+  --bamboo-900: #0C3527;
+
+  /* Hanko — accent (red ink seal) */
+  --hanko-50:  #FBEEEC;
+  --hanko-100: #F4D3CE;
+  --hanko-300: #DC8378;
+  --hanko-500: #C4453A; /* accent */
+  --hanko-600: #A8362C;
+  --hanko-700: #862A22;
+
+  /* Ink — text + line work */
+  --ink-1000: #19211D;
+  --ink-900:  #2A332E;
+  --ink-700:  #4A554F;
+  --ink-500:  #6E7872;
+  --ink-300:  #8E9892;
+  --ink-200:  #B5BDB7;
+
+  /* Washi — paper / surface */
+  --washi-50:  #FFFDF7;
+  --washi-100: #FAF6EC;
+  --washi-200: #F2EBDA;
+  --washi-300: #E8DFCB;
+  --washi-400: #D6CBAF;
+
+  /* Sumi — dark mode neutrals */
+  --sumi-1000: #0E1112;
+  --sumi-900:  #14181A;
+  --sumi-800:  #1B2023;
+  --sumi-700:  #242A2D;
+  --sumi-600:  #2F363A;
+  --sumi-500:  #485055;
+  --sumi-400:  #6A7378;
+  --sumi-300:  #8E979C;
+  --sumi-200:  #B6BEC2;
+  --sumi-100:  #DDE2E5;
+}
+
+/* ---------- Theme: Washi (default light) ---------- */
+:root,
+:root[data-theme="washi"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg:           var(--washi-100);
+  --bg-elevated: var(--washi-50);
+  --bg-sunken:   var(--washi-200);
+  --paper:        var(--washi-50);
+
+  /* Foreground */
+  --fg:           var(--ink-1000);
+  --fg-muted:     var(--ink-700);
+  --fg-subtle:    var(--ink-500);
+  --fg-faint:     var(--ink-300);
+  --fg-on-primary: #FFFDF7;
+
+  /* Lines */
+  --line:         rgba(25, 33, 29, 0.12);
+  --line-strong:  rgba(25, 33, 29, 0.24);
+  --line-faint:   rgba(25, 33, 29, 0.06);
+
+  /* Brand */
+  --primary:        var(--bamboo-500);
+  --primary-hover:  var(--bamboo-600);
+  --primary-press:  var(--bamboo-700);
+  --primary-tint:   var(--bamboo-50);
+
+  --accent:         var(--hanko-500);
+  --accent-hover:   var(--hanko-600);
+  --accent-tint:    var(--hanko-50);
+
+  /* Semantic */
+  --success: var(--bamboo-500);
+  --warning: #B07A1A;
+  --danger:  var(--hanko-500);
+  --info:    #2A6FDB;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(31, 138, 91, 0.28);
+
+  /* Paper texture */
+  --paper-texture-opacity: 0.06;
+}
+
+/* ---------- Theme: Pure light ---------- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:          #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-sunken:   #F6F6F4;
+  --paper:       #FFFFFF;
+  --paper-texture-opacity: 0;
+}
+
+/* ---------- Theme: Sumi (dark) ---------- */
+:root[data-theme="sumi"] {
+  color-scheme: dark;
+
+  --bg:          var(--sumi-900);
+  --bg-elevated: var(--sumi-800);
+  --bg-sunken:   var(--sumi-1000);
+  --paper:       var(--sumi-800);
+
+  --fg:           #ECEFF0;
+  --fg-muted:     var(--sumi-200);
+  --fg-subtle:    var(--sumi-300);
+  --fg-faint:     var(--sumi-400);
+  --fg-on-primary: #0E1112;
+
+  --line:         rgba(255, 253, 247, 0.10);
+  --line-strong:  rgba(255, 253, 247, 0.22);
+  --line-faint:   rgba(255, 253, 247, 0.05);
+
+  --primary:        #4FB489;          /* lifted bamboo for dark */
+  --primary-hover:  #6BC59E;
+  --primary-press:  var(--bamboo-300);
+  --primary-tint:   rgba(79, 180, 137, 0.14);
+
+  --accent:         #E37468;
+  --accent-hover:   #ED8B7F;
+  --accent-tint:    rgba(227, 116, 104, 0.16);
+
+  --success: #4FB489;
+  --warning: #E0A14A;
+  --danger:  #E37468;
+  --info:    #6FA0E5;
+
+  --focus-ring: 0 0 0 3px rgba(79, 180, 137, 0.40);
+  --paper-texture-opacity: 0;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+:root {
+  /* Families — layered with unicode-range inside fonts.css.
+     Be Vietnam Pro carries Latin & VN diacritics; Noto Sans/Serif JP carry kana/kanji. */
+  --font-sans:    "Be Vietnam Pro", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif:   "Be Vietnam Pro", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-jp:      "Noto Sans JP", "Be Vietnam Pro", system-ui, sans-serif;
+  --font-jp-serif: "Noto Sans JP", "Be Vietnam Pro", system-ui, sans-serif;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  /* Type scale (1.200 minor third, slightly compressed) */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   22px;
+  --text-xl:   28px;
+  --text-2xl:  36px;
+  --text-3xl:  48px;
+  --text-4xl:  64px;
+
+  /* Line heights */
+  --lh-tight:  1.15;
+  --lh-snug:   1.30;
+  --lh-normal: 1.55;
+  --lh-loose:  1.75;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+}
+
+/* Semantic typography */
+.k-display {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+.k-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-3xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+.k-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+.k-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+.k-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+}
+.k-body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--fg);
+}
+.k-body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--lh-normal);
+  color: var(--fg);
+}
+.k-small {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-muted);
+}
+.k-caption {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-subtle);
+}
+.k-jp {
+  font-family: var(--font-jp);
+  font-feature-settings: "palt" 1;
+}
+.k-jp-display {
+  font-family: var(--font-jp);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em;
+}
+.k-mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* ============================================================
+   Spacing
+   ============================================================ */
+:root {
+  --space-0:   0;
+  --space-px:  1px;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   32px;
+  --space-8:   40px;
+  --space-9:   48px;
+  --space-10:  64px;
+  --space-11:  80px;
+  --space-12:  96px;
+  --space-13:  128px;
+}
+
+/* ============================================================
+   Radii
+   ============================================================ */
+:root {
+  --radius-none: 0;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 999px;
+}
+
+/* ============================================================
+   Shadows  (intentionally minimal — ink on paper, not material)
+   ============================================================ */
+:root {
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 rgba(25, 33, 29, 0.08);
+  --shadow-2: 0 8px 28px -12px rgba(25, 33, 29, 0.18);
+  --shadow-pop: 0 18px 48px -20px rgba(25, 33, 29, 0.24);
+}
+:root[data-theme="sumi"] {
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.55);
+  --shadow-2: 0 8px 28px -12px rgba(0, 0, 0, 0.55);
+  --shadow-pop: 0 18px 48px -20px rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================================
+   Motion
+   ============================================================ */
+:root {
+  --ease-brush: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out:   cubic-bezier(0.2, 0.6, 0.2, 1);
+  --duration-fast:   80ms;
+  --duration-base:   120ms;
+  --duration-slow:   200ms;
+  --duration-deliberate: 320ms;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+:root {
+  --content-narrow: 640px;
+  --content-base:   840px;
+  --content-wide:   1080px;
+  --content-max:    1280px;
+  --read-width:     64ch;
+}
+
+/* ============================================================
+   Resets / base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle paper texture overlay — drawn via SVG noise filter, no asset required */
+body.k-papered::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--paper-texture-opacity, 0);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3   0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); }
+
+::selection { background: var(--primary-tint); color: var(--fg); }
+
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }

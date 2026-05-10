@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koro · Phòng trò chuyện</title>
+<link rel="icon" href="assets/logomark.svg" />
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Resources referenced in JSX strings (bundler can't see those) -->
+<meta name="ext-resource-dependency" content="assets/mascot.svg" data-resource-id="mascot" />
+<meta name="ext-resource-dependency" content="assets/logomark.svg" data-resource-id="logomark" />
+<meta name="ext-resource-dependency" content="assets/bamboo.svg" data-resource-id="bamboo" />
+
+<template id="__bundler_thumbnail" data-bg-color="#FAF6EC">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="60" fill="#1F8A5B"/>
+    <text x="100" y="118" text-anchor="middle" font-family="serif" font-size="56" fill="#FAF6EC" font-weight="600">コ</text>
+  </svg>
+</template>
+<style>
+  /* Make sure the page itself doesn't add gutters */
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+</style>
+</head>
+<body class="k-papered">
+<div id="root"></div>
+
+<!-- React + Babel + Lucide -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

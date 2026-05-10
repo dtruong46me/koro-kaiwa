@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none">
+  
+  
+  <g transform="translate(8 12)">
+    <path d="M20 4 C 8 8, 2 22, 8 36 C 22 38, 34 28, 36 14 C 30 8, 26 4, 20 4 Z" fill="#1F8A5B"></path>
+    <path d="M14 30 L 30 12" stroke="#114836" stroke-width="1.6" stroke-linecap="round"></path>
+  </g>
+  
+  <text x="60" y="44" font-family="Noto Serif JP, serif" font-size="34" font-weight="500" fill="#19211D" letter-spacing="0.5">koro</text>
+  
+  <text x="156" y="44" font-family="Noto Serif JP, serif" font-size="22" font-weight="400" fill="#6E7872">・ころ</text>
+</svg>

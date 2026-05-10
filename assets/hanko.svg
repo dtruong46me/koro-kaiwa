@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  
+  <circle cx="40" cy="40" r="34" fill="#C4453A"></circle>
+  <circle cx="40" cy="40" r="34" stroke="#862A22" stroke-width="2" opacity="0.6"></circle>
+  
+  <circle cx="40" cy="40" r="34" stroke="#FAF6EC" stroke-width="0.8" stroke-dasharray="2 5" opacity="0.5"></circle>
+  <text x="40" y="50" text-anchor="middle" font-family="Noto Serif JP, serif" font-size="28" font-weight="700" fill="#FAF6EC">ころ</text>
+</svg>
